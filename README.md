@@ -3,16 +3,17 @@
 
 ### 电脑配置
 
-规格	详细信息
-电脑型号	联想 昭阳 E52-80 笔记本电脑
-操作系统	macOS Catalina 10.15.4(19E287)
-处理器	英特尔 酷睿 i5 - 7200U
-内存	8GB DDR4 2133MHz
-硬盘	SSD 128G STATIII接口
-显卡	Intel HD Graphics 620
-显示器	15.5 英寸 FHD 1366x768
-声卡	Realtek ALC236
-网卡 原Intel3165NGW无解，更换为 Dell DW1820A(08KF4)
+|规格|	|详细信息|
+|:----:| |:----:|
+|电脑型号|	|联想 昭阳 E52-80 笔记本电脑|
+|操作系统|	|macOS Catalina 10.15.4(19E287)|
+|处理器|	|英特尔 酷睿 i5 - 7200U|
+|内存|	|8GB DDR4 2133MHz|
+|硬盘| |SSD 128G STATIII接口|
+|显卡|	|Intel HD Graphics 620|
+|显示器|	|15.5 英寸 FHD 1366x768|
+|声卡|	|Realtek ALC236|
+|网卡| |原Intel3165NGW无解，更换为 Dell DW1820A(08KF4)|
 
 
 
