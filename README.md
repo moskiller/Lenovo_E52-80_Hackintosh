@@ -26,7 +26,7 @@
 
 1. 显卡: Intel(R) UD Graphics 620，Platform-id为：0x59160000，添加DVMT补丁,采用Devices-Properties方法注入； 独显暂无解，已屏蔽。
 2. 电源: 亮度调节: F11减少 F12增加
-3. 蓝牙: 可工作，但不稳定, AirDrop、handoff功能可用
+3. 蓝牙: 可工作，但不稳定, AirDrop、handoff、Apple Watch解锁等功能都可用
 4. Wifi: DW1820A(08KF4) NGFF M.2接口，不用屏蔽引脚，直接免驱，采用Devices-Properties方法注入: pci-aspm-default	 0 就可以了
 5. USB: 采用 Hackintool 定制
 6. 声卡: 型号为ALC236，注入ID：3，使用AppleALC仿冒，顺利加载；
@@ -41,7 +41,7 @@
 1. SD 读卡器 不能用
 2. 指纹功能 不能用
 3. 睡眠唤醒后，偶有键盘失灵，需要重启电脑 
-
+4. Apple Watch解锁功能，只在第一次解锁时是正常的， 之后就不能再解锁了，原因不明。
 
 
 
