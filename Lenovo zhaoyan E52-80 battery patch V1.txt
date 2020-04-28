@@ -1,0 +1,130 @@
+# Lenovo zhaoyan E52-80 battery patch V0.1
+# By VinceNT.范     2020/04/15
+# 
+
+
+
+# === Field devide (16bit) ===
+
+into device label EC0 code_regex MCUR,\s+16, replace_matched begin CUR0, 8,CUR1, 8, end;
+into device label EC0 code_regex MBRM,\s+16, replace_matched begin BRM0, 8,BRM1, 8, end;
+into device label EC0 code_regex MBVG,\s+16, replace_matched begin BVG0, 8,BVG1, 8, end;
+into device label EC0 code_regex B1FC,\s+16, replace_matched begin B1F0, 8,B1F1, 8, end;
+into device label EC0 code_regex B2FC,\s+16, replace_matched begin B2F0, 8,B2F1, 8, end;
+into device label EC0 code_regex SBCC,\s+16 replace_matched begin BCC0, 8,BCC1, 8 end;
+into device label EC0 code_regex SBDC,\s+16, replace_matched begin BDC0, 8,BDC1, 8, end;
+into device label EC0 code_regex SBDV,\s+16, replace_matched begin DV00, 8,DV01, 8, end;
+into device label EC0 code_regex SBOM,\s+16, replace_matched begin OM00, 8,OM01, 8, end;
+into device label EC0 code_regex SBDT,\s+16, replace_matched begin DT00, 8,DT01, 8, end;
+into device label EC0 code_regex SBFC,\s+16, replace_matched begin FC00, 8,FC01, 8, end;
+into device label EC0 code_regex SBRC,\s+16, replace_matched begin BRC0, 8,BRC1, 8, end;
+into device label EC0 code_regex SBAE,\s+16, replace_matched begin BAE0, 8,BAE1, 8, end;
+into device label EC0 code_regex SBAF,\s+16, replace_matched begin BAF0, 8,BAF1, 8, end;
+into device label EC0 code_regex SBVO,\s+16, replace_matched begin VO00, 8,VO01, 8, end;
+into device label EC0 code_regex SBAC,\s+16, replace_matched begin BAC0, 8,BAC1, 8, end;
+into device label EC0 code_regex SBTP,\s+16 replace_matched begin TP00, 8,TP01, 8 end;
+
+
+
+
+# === Replace called method ===
+
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized)\n
+{\n
+Return(Or(Arg0, ShiftLeft(Arg1, 8)))\n
+}\n
+end;
+
+into method label UPBS code_regex \(\^\^PCI0\.LPCB\.EC0\.MCUR, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.CUR0,^^PCI0.LPCB.EC0.CUR1), end;
+into method label UPBS code_regex \(\^\^PCI0\.LPCB\.EC0\.MBRM, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BRM0,^^PCI0.LPCB.EC0.BRM1), end;
+into method label UPBS code_regex \(\^\^PCI0\.LPCB\.EC0\.MBVG, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BVG0,^^PCI0.LPCB.EC0.BVG1), end;
+into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.B1FC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.B1F0,^^PCI0.LPCB.EC0.B1F1), end;
+into method label SMTF code_regex \(B1FC, replaceall_matched begin (B1B2(B1F0,B1F1), end;
+into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.B2FC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.B2F0,^^PCI0.LPCB.EC0.B2F1), end;
+into method label UPI2 code_regex \(\^\^PCI0\.LPCB\.EC0\.B2FC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.B2F0,^^PCI0.LPCB.EC0.B2F1), end;
+into method label SMTF code_regex \(B2FC, replaceall_matched begin (B1B2(B2F0,B2F1), end;
+into method label GBID code_regex \(SBCC, replaceall_matched begin (B1B2(BCC0,BCC1), end;
+into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BDC0,^^PCI0.LPCB.EC0.BDC1), end;
+into method label UPI2 code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BDC0,^^PCI0.LPCB.EC0.BDC1), end;
+into method label GSBI code_regex \(SBDC, replaceall_matched begin (B1B2(BDC0,BDC1), end;
+into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDV, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.DV00,^^PCI0.LPCB.EC0.DV01), end;
+into method label UPI2 code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDV, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.DV00,^^PCI0.LPCB.EC0.DV01), end;
+into method label GSBI code_regex \(SBDV, replaceall_matched begin (B1B2(DV00,DV01), end;
+into method label GSBI code_regex \(SBOM, replaceall_matched begin (B1B2(OM00,OM01), end;
+into method label GSBI code_regex \(SBDT, replaceall_matched begin (B1B2(DT00,DT01), end;
+into method label GSBI code_regex \(SBFC, replaceall_matched begin (B1B2(FC00,FC01), end;
+into method label GSBI code_regex \(SBRC, replaceall_matched begin (B1B2(BRC0,BRC1), end;
+into method label GSBI code_regex \(SBAE, replaceall_matched begin (B1B2(BAE0,BAE1), end;
+into method label GSBI code_regex \(SBAF, replaceall_matched begin (B1B2(BAF0,BAF1), end;
+into method label GSBI code_regex \(SBVO, replaceall_matched begin (B1B2(VO00,VO01), end;
+into method label GSBI code_regex \(SBAC, replaceall_matched begin (B1B2(BAC0,BAC1), end;
+into method label GSBI code_regex \(SBTP, replaceall_matched begin (B1B2(TP00,TP01), end;
+
+
+
+
+
+# === Data handling method ===
+
+into method label RE1B parent_label EC0 remove_entry;
+into method label RECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+// Arg0 - offset in bytes from zero-based EC\n
+// Arg1 - size of buffer in bits\n
+{\n
+    ShiftRight(Add(Arg1,7), 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+into method label GSBI code_regex \(BBN2, replaceall_matched begin (RECB(0xA0,56), end;
+into method label GSBI code_regex \(SBCH, replaceall_matched begin (RECB(0xA0,64), end;
+into method label GSBI code_regex \(BADN, replaceall_matched begin (RECB(0xA0,64), end;
+into method label GSBI code_regex \(SBFV, replaceall_matched begin (RECB(0xA2,64), end;
+into method label GBID code_regex \(SBFV, replaceall_matched begin (RECB(0xA2,64), end;
+into method label GBID code_regex \(BAMN, replaceall_matched begin (RECB(0xA0,96), end;
+into method label MHIF code_regex \(BAIF, replaceall_matched begin (RECB(0xA0,128), end;
+into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBMN, replaceall_matched begin (^^PCI0.LPCB.EC0.RECB(0xA0,128), end;
+into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDN, replaceall_matched begin (^^PCI0.LPCB.EC0.RECB(0xA0,128), end;
+into method label GSBI code_regex \(SBBN, replaceall_matched begin (RECB(0xA0,128), end;
+into method label BFWL code_regex \(\\\_SB\.PCI0\.LPCB\.EC0\.SMD0, replaceall_matched begin \(\\\_SB.PCI0.LPCB.EC0.RECB(0x64,256), end;
+
+
+
+#delete BAT2
+into method label _STA parent_label BAT2 replace_content begin Return (Zero) end;
+
+
+
+# RehabMan "Fix Mutex with non-zero SynLevel"  Patch
+# 10x as workaround for MaciASL bug...
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
