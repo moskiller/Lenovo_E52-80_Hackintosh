@@ -24,24 +24,25 @@
 
 ### 正常工作
 
-1. 显卡: Intel(R) UD Graphics 620，Platform-id为：0x59160000，添加DVMT补丁,采用Devices-Properties方法注入； 独显暂无解，已屏蔽。
-2. 电源: 亮度调节: F11减少 F12增加
-3. 蓝牙: 采用[headkaze](https://www.insanelymac.com/forum/profile/1364628-headkaze/)提供的kext，固件为V7 4689， 可工作，但不稳定, AirDrop、handoff、Apple Watch解锁等功能都可用
-4. Wifi: DW1820A(08KF4) NGFF M.2接口，不用屏蔽引脚，直接免驱，采用Devices-Properties方法注入: pci-aspm-default	 0 就可以了
-5. USB: 采用 Hackintool 定制
-6. 声卡: 型号为ALC236，注入ID：3，使用AppleALC仿冒，顺利加载；
-7. 有线网卡: 使用Realtek8111.kext
-8. 摄像头: 正常
-9. 触摸板: 采用AppleBacklightFixup驱动，支指2、3、4指，但不完美。
-10. 电池: 已打DSDT补丁，可正常显示电量
-11. 其它 ACPI 补丁修复采用 hotpatch 方式，文件位于 /CLOVER/ACPI/patched
+1. 显卡: 集显　Intel(R) UD Graphics 620正常，Platform-id为：0x59160000，添加DVMT补丁,采用Devices-Properties方法注入； 　独显暂无解，加上性能不佳，已从BIOS中关闭。
+2. 电源: 睡眠正常，合盖正常。
+3. 亮度调节: 正常，F11减少 F12增加。
+4. 蓝牙: 采用[headkaze](https://www.insanelymac.com/forum/profile/1364628-headkaze/)提供的kext，固件为V7 4689， 可工作，但不稳定, AirDrop、handoff、Apple Watch解锁等功能都可用。
+5. Wifi: DW1820A(08KF4) NGFF M.2接口，不用屏蔽引脚，直接免驱，采用Devices-Properties方法注入: pci-aspm-default	 0 就可以了
+6. USB: 采用 Hackintool 定制，正常使用。
+7. 声卡: 型号为ALC236，注入ID：3，使用AppleALC仿冒，顺利加载；
+8. 有线网卡: 使用Realtek8111.kext
+9. 摄像头: 正常
+10. 触摸板: 采用AppleBacklightFixup驱动，支指2、3、4指，较完美。
+11. 电池: 已打DSDT补丁，可正常显示电量。
+12. 其它 ACPI 补丁修复采用 hotpatch 方式，文件位于 /CLOVER/ACPI/patched。
 
 
 ### 已知问题
 1. SD 读卡器 不能用
 2. 指纹功能 不能用
-3. 睡眠唤醒后，偶有键盘失灵，需要重启电脑 
-4. Apple Watch解锁功能，只在第一次解锁时是正常的， 之后就不能再解锁了，原因不明。
+3. ~~睡眠唤醒后，偶有键盘失灵，需要重启电脑~~ 定制USB后，基本正常，测试中。
+4. Apple Watch解锁功能，只在第一次解锁时是正常的，之后就不能再解锁了，原因不明。
 
 
 
