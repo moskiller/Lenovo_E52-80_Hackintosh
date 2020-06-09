@@ -17,9 +17,9 @@
 声卡 | Realtek ALC236
 摄像头 | 720P HD摄像头
 有线网卡 | Realtek8111 100/1000M自适应网卡
-无线网卡 | 原Intel3165NGW无解，更换为 Dell DW1820A(08KF4)
+无线网卡 | ~~原Intel3165NGW无解，更换为 Dell DW1820A(08KF4)~~ BCM94360CS2+转接卡
 读卡器 | 4合1读卡器 (SD, SDHC, SDXC, MMC)
-引导方案 | Clover V5114
+引导方案 | Clover
 
 
 ### 正常工作
@@ -27,22 +27,21 @@
 1. 显卡: 集显　Intel(R) UD Graphics 620正常，Platform-id为：0x59160000，添加DVMT补丁,采用Devices-Properties方法注入； 　独显暂无解，加上性能不佳，已从BIOS中关闭。
 2. 电源: 睡眠正常，合盖正常。
 3. 亮度调节: 正常，F11减少 F12增加。
-4. 蓝牙: 采用[headkaze](https://www.insanelymac.com/forum/profile/1364628-headkaze/)提供的kext，固件为V7 4689， 可工作，但不稳定, AirDrop、handoff、Apple Watch解锁等功能都可用。
-5. Wifi: DW1820A(08KF4) NGFF M.2接口，不用屏蔽引脚，直接免驱，采用Devices-Properties方法注入: pci-aspm-default	 0 就可以了
+4. 蓝牙: ~~采用[headkaze](https://www.insanelymac.com/forum/profile/1364628-headkaze/)提供的kext，固件为V7 4689， 可工作，但不稳定, AirDrop、handoff、Apple Watch解锁等功能都可用。~~ 更换为BCM94360CS2，免驱，所有功能正常，包括AirDrop、handoff、Apple Watch解锁等。
+5. Wifi: ~~DW1820A(08KF4) NGFF M.2接口，不用屏蔽引脚，直接免驱，采用Devices-Properties方法注入: pci-aspm-default	 0 就可以了~~ 同上，更换后免驱、免注入任何属性。
 6. USB: 采用 Hackintool 定制，正常使用。
 7. 声卡: 型号为ALC236，注入ID：3，使用AppleALC仿冒，顺利加载；
-8. 有线网卡: 使用Realtek8111.kext
+8. 有线网卡: 使用 Realtek8111.kext
 9. 摄像头: 正常
-10. 触摸板: 采用AppleBacklightFixup驱动，支指2、3、4指，较完美。
+10. 触摸板: 采用自己修改过的 ApplePS2SmartTouchPad.kext 驱动，支指2、3、4指，较完美。
 11. 电池: 已打DSDT补丁，可正常显示电量。
-12. 其它 ACPI 补丁修复采用 hotpatch 方式，文件位于 /CLOVER/ACPI/patched。
-
+12. 睡眠：其它 ACPI 补丁修复采用 hotpatch 方式，文件位于 /CLOVER/ACPI/patched。
 
 ### 已知问题
 1. SD 读卡器 不能用
 2. 指纹功能 不能用
 3. ~~睡眠唤醒后，偶有键盘失灵，需要重启电脑~~ 定制USB后，基本正常，测试中。
-4. Apple Watch解锁功能，只在第一次解锁时是正常的，之后就不能再解锁了，原因不明。
+4. ~~Apple Watch解锁功能，只在第一次解锁时是正常的，之后就不能再解锁了，原因不明。~~ 更换为BCM94360CS2后，真香！
 
 
 
@@ -58,6 +57,8 @@
 `sudo pmset -a hibernatemode 0`
 
 ### 更新日志
+2. 2020/05/14
+放弃DW1820A，更换BCM94360CS2网卡，同时精简少许无用的驱动。 再加装了Win10。现在是双系统啦
 
 1. 2020/04/28
 第一次上传
