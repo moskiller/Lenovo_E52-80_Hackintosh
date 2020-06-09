@@ -22,6 +22,16 @@
 引导方案 | Clover
 
 
+### 更新日志
+1. 2020/05/14
+放弃DW1820A，更换BCM94360CS2网卡，同时精简少许无用的驱动。 现在是 MacOS + Win10 双系统啦!  EFI在这里[2020-05-14-V2-EFI.zip](https://github.com/moskiller/Lenovo_E52-80_Hackintosh/blob/master/2020-05-14-V2-EFI.zip)
+  
+2. 2020/04/28
+第一次上传.    EFI在这里 [2020-4-28-V1-EFI.zip](https://github.com/moskiller/Lenovo_E52-80_Hackintosh/blob/master/2020-4-28-V1-EFI.zip)
+
+  
+  
+
 ### 正常工作
 
 1. 显卡: 集显　Intel(R) UD Graphics 620正常，Platform-id为：0x59160000，添加DVMT补丁,采用Devices-Properties方法注入； 　独显暂无解，加上性能不佳，已从BIOS中关闭。
@@ -56,12 +66,6 @@
 因目前休眠无法正常唤醒 , 为避免影响到睡眠 , 终端使用以下命令关闭休眠
 `sudo pmset -a hibernatemode 0`
 
-### 更新日志
-1. 2020/05/14
-放弃DW1820A，更换BCM94360CS2网卡，同时精简少许无用的驱动。 再加装了Win10。现在是双系统啦
-
-2. 2020/04/28
-第一次上传
 
 
 ### 鸣谢(排名不分先后)
