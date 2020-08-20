@@ -43,15 +43,11 @@ into method label UPBS code_regex \(\^\^PCI0\.LPCB\.EC0\.MBRM, replaceall_matche
 into method label UPBS code_regex \(\^\^PCI0\.LPCB\.EC0\.MBVG, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BVG0,^^PCI0.LPCB.EC0.BVG1), end;
 into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.B1FC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.B1F0,^^PCI0.LPCB.EC0.B1F1), end;
 into method label SMTF code_regex \(B1FC, replaceall_matched begin (B1B2(B1F0,B1F1), end;
-into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.B2FC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.B2F0,^^PCI0.LPCB.EC0.B2F1), end;
-into method label UPI2 code_regex \(\^\^PCI0\.LPCB\.EC0\.B2FC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.B2F0,^^PCI0.LPCB.EC0.B2F1), end;
 into method label SMTF code_regex \(B2FC, replaceall_matched begin (B1B2(B2F0,B2F1), end;
 into method label GBID code_regex \(SBCC, replaceall_matched begin (B1B2(BCC0,BCC1), end;
 into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BDC0,^^PCI0.LPCB.EC0.BDC1), end;
-into method label UPI2 code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDC, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BDC0,^^PCI0.LPCB.EC0.BDC1), end;
 into method label GSBI code_regex \(SBDC, replaceall_matched begin (B1B2(BDC0,BDC1), end;
 into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDV, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.DV00,^^PCI0.LPCB.EC0.DV01), end;
-into method label UPI2 code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDV, replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.DV00,^^PCI0.LPCB.EC0.DV01), end;
 into method label GSBI code_regex \(SBDV, replaceall_matched begin (B1B2(DV00,DV01), end;
 into method label GSBI code_regex \(SBOM, replaceall_matched begin (B1B2(OM00,OM01), end;
 into method label GSBI code_regex \(SBDT, replaceall_matched begin (B1B2(DT00,DT01), end;
@@ -102,7 +98,7 @@ into method label GSBI code_regex \(SBCH, replaceall_matched begin (RECB(0xA0,64
 into method label GSBI code_regex \(BADN, replaceall_matched begin (RECB(0xA0,64), end;
 into method label GSBI code_regex \(SBFV, replaceall_matched begin (RECB(0xA2,64), end;
 into method label GBID code_regex \(SBFV, replaceall_matched begin (RECB(0xA2,64), end;
-into method label GBID code_regex \(BAMN, replaceall_matched begin (RECB(0xA0,96), end;
+into method label GSBI code_regex \(BAMN, replaceall_matched begin (RECB(0xA0,96), end;
 into method label MHIF code_regex \(BAIF, replaceall_matched begin (RECB(0xA0,128), end;
 into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBMN, replaceall_matched begin (^^PCI0.LPCB.EC0.RECB(0xA0,128), end;
 into method label UPBI code_regex \(\^\^PCI0\.LPCB\.EC0\.SBDN, replaceall_matched begin (^^PCI0.LPCB.EC0.RECB(0xA0,128), end;
