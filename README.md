@@ -23,10 +23,12 @@
 
 
 ### 更新日志
-1. 2020/05/14
+* 2020/08/20
+  修改了电池补丁文件中的两处错误调用。
+* 2020/05/14
 放弃DW1820A，更换BCM94360CS2网卡，同时精简少许无用的驱动。 现在是 MacOS + Win10 双系统啦!  EFI在这里[2020-05-14-V2-EFI.zip](https://github.com/moskiller/Lenovo_E52-80_Hackintosh/blob/master/2020-05-14-V2-EFI.zip)
   
-2. 2020/04/28
+* 2020/04/28
 第一次上传.    EFI在这里 [2020-4-28-V1-EFI.zip](https://github.com/moskiller/Lenovo_E52-80_Hackintosh/blob/master/2020-4-28-V1-EFI.zip)
 
   
